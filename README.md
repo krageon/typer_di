@@ -67,6 +67,12 @@ def second(..., config: Config = Depends(get_config)):
 
 ## Release Notes
 
+### v0.1.6
+- moved project to uv
+- updated tracking of copyright and licensing using `reuse`
+- dependency moved to `typer`, as `typer-slim` is an alias for it now
+- removed support for anything but 3.14
+
 ### v0.1.5
 - update package meta info for python 3.14
 
