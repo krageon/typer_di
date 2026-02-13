@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Evgeniy A. Cymbalyuk <cimbaluk@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 import inspect
 import sys
 from typing import Any, Callable

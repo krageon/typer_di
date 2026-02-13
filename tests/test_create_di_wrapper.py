@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Evgeniy A. Cymbalyuk <cimbaluk@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 from inspect import Signature, signature
 from typing import Any
 from unittest import mock

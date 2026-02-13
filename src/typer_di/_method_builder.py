@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Evgeniy A. Cymbalyuk <cimbaluk@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 from dataclasses import dataclass
 from functools import WRAPPER_ASSIGNMENTS
 from inspect import Parameter, Signature

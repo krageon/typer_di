@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Evgeniy A. Cymbalyuk <cimbaluk@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 from functools import wraps
 from typing import TYPE_CHECKING, Any, Callable
 
