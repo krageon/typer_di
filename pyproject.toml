@@ -1,6 +1,6 @@
 [project]
 name = "typer-di"
-version = "0.1.6"
+version = "0.1.7"
 description = "Extension for `typer` for dependency injection like in FastAPI"
 requires-python = ">=3.14"
 readme = "README.md"
