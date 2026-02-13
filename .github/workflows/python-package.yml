@@ -15,22 +15,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+        python-version: ["3.14"]
         include:
-          - python-version: '3.8'
-            poetry-version: '1.8.5'
-          - python-version: '3.9'
-            poetry-version: '1.8.5'
-          - python-version: '3.10'
-            poetry-version: '1.8.5'
-          - python-version: '3.11'
-            poetry-version: '1.8.5'
-          - python-version: '3.12'
-            poetry-version: '1.8.5'
-          - python-version: '3.13'
-            poetry-version: '1.8.5'
           - python-version: '3.14'
-            poetry-version: '1.8.5'
 
     steps:
     - uses: actions/checkout@v3
@@ -41,27 +28,19 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: ${{ matrix.poetry-version }}
+      uses: yezz123/setup-uv@v4
 
-    - name: Export requirements.txt
-      run: |
-        poetry export --without-hashes --output requirements.txt
-
-    - name: Cache pip for dependencies
+    - name: Cache uv for dependencies
       uses: actions/cache@v3
       with:
-        key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
-        path: ~/.cache/pip
+        key: ${{ runner.os }}-uv-${{ matrix.python-version }}
+        path: ~/.cache/uv
         restore-keys: |
-          ${{ runner.os }}-pip-
+          ${{ runner.os }}-uv-
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        python -m pip install flake8 pytest pytest-cov mypy
-        python -m pip install -r requirements.txt
+        uv sync --dev
 
     - name: Test with pytest
       run: |
